@@ -1,10 +1,10 @@
-package jimsby.restorantvotingservice;
+package jimsby.restaurantvotingservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RestorantVotingApplicationTests {
+class RestaurantVotingApplicationTests {
 
     @Test
     void contextLoads() {
