@@ -12,17 +12,9 @@ import java.time.LocalDate;
 
 @SpringBootApplication
 @AllArgsConstructor
-public class RestaurantVotingApplication implements ApplicationRunner {
+public class RestaurantVotingApplication {
 private final VoteRepository voteRepository;
     public static void main(String[] args) {
         SpringApplication.run(RestaurantVotingApplication.class, args);
-    }
-
-
-    @Override
-    public void run(ApplicationArguments args) throws Exception {
-        System.out.println(voteRepository.getVotesByDateEquals(LocalDate.now()));
-        System.out.println(LocalDate.now());
-        System.out.println(voteRepository.findAll());
     }
 }
