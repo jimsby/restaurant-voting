@@ -21,13 +21,13 @@ import java.util.List;
 public class Restaurant extends NamedEntity implements HasId {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
     @OrderBy("date DESC")
-    @JsonManagedReference
+    @JsonManagedReference (value = "meal")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Meal> meals;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
     @OrderBy("date DESC")
-    @JsonManagedReference
+    @JsonManagedReference (value = "restaurant")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Vote> votes;
 }

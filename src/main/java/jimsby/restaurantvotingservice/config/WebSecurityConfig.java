@@ -22,6 +22,8 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 
 import java.util.Optional;
 
+import static jimsby.restaurantvotingservice.util.UserUtil.PASSWORD_ENCODER;
+
 @Configuration
 @EnableWebSecurity
 @Slf4j
@@ -50,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService())
-                .passwordEncoder(PasswordEncoderFactories.createDelegatingPasswordEncoder());
+                .passwordEncoder(PASSWORD_ENCODER);
     }
 
     @Override

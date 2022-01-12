@@ -22,7 +22,7 @@ public class Meal extends NamedEntity implements HasId {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference (value = "meal")
     @ToString.Exclude
     private Restaurant restaurant;
 
