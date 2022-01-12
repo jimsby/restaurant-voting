@@ -25,4 +25,6 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Integer>
     @Query("select r from Restaurant r")
     List<Restaurant> findAllWithMeals();
 
+    @Query("select r from Restaurant r join fetch r.meals m where m.date = current_date")
+    List<Restaurant> findAllWithMealsToday();
 }

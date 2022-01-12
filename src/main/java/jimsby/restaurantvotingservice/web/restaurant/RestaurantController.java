@@ -36,4 +36,10 @@ public class RestaurantController extends AbstractRestaurantController {
         log.info("get restaurant All");
         return repository.findAllWithMeals();
     }
+
+    @GetMapping("/today")
+    public List<Restaurant> getAllToday() {
+        log.info("get restaurant All today");
+        return repository.findAllWithMealsToday();
+    }
 }
