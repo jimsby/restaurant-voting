@@ -31,4 +31,11 @@ public class Vote extends BaseEntity implements HasId {
     @JsonBackReference (value = "user")
     @ToString.Exclude
     private User user;
+
+    public Vote(Restaurant restaurant, User user){
+        this();
+        this.date = LocalDate.now();
+        this.restaurant = restaurant;
+        this.user = user;
+    }
 }

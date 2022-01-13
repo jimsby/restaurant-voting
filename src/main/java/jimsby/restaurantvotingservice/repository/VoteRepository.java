@@ -1,5 +1,7 @@
 package jimsby.restaurantvotingservice.repository;
 
+import jimsby.restaurantvotingservice.model.Meal;
+import jimsby.restaurantvotingservice.model.Restaurant;
 import jimsby.restaurantvotingservice.model.Vote;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -7,13 +9,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Transactional(readOnly = true)
 public interface VoteRepository extends JpaRepository<Vote, Integer> {
 
-    //@Query("SELECT v from Vote v WHERE v.date = :date")
-    List<Vote> getVotesByDateEquals(LocalDate date);
+    @Query("select distinct v from Vote v " +
+            "join fetch v.user u " +
+            "where v.date = current_date and v.restaurant.id = :id")
+    List<Vote> findAllWithUserToday(Integer id);
 
     @Query("SELECT COUNT (v) from Vote v WHERE v.date = :date and v.restaurant.id = :restaurant_id")
-    Integer getVotesByRestaurantCurrentDate(LocalDate date, int restaurant_id);
+    long getVotesCountByRestaurantCurrentDate(int restaurant_id, LocalDate date);
+
+    @Query("SELECT COUNT (v) from Vote v WHERE v.date = current_date and v.restaurant.id = :restaurant_id")
+    long getVotesCountByRestaurantToday(int restaurant_id);
+
+    @Query("SELECT v FROM Vote v join fetch v.user u WHERE u.id = :id and v.date = current_date")
+    Vote get(int id);
 }

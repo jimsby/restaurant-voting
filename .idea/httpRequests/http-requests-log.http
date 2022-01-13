@@ -1,3 +1,195 @@
+POST http://localhost:8080/api/restaurant/2/vote/
+Authorization: Basic user@yandex.ru password
+Content-Type: application/json
+
+<> 2022-01-13T223924.201.json
+
+###
+
+POST http://localhost:8080/api/restaurant/2/vote/
+Authorization: Basic user@yandex.ru password
+Content-Type: application/json
+
+<> 2022-01-13T223755.403.json
+
+###
+
+POST http://localhost:8080/api/restaurant/2/vote/
+Authorization: Basic user@yandex.ru password
+Content-Type: application/json
+
+###
+
+POST http://localhost:8080/api/restaurant/2/vote/
+Authorization: Basic user@yandex.ru password
+Content-Type: application/json
+
+<> 2022-01-13T223440.403.json
+
+###
+
+POST http://localhost:8080/api/restaurant/2/vote/
+Authorization: Basic user@yandex.ru password
+Content-Type: application/json
+
+<> 2022-01-13T223410.403.json
+
+###
+
+POST http://localhost:8080/api/restaurant/2/vote/
+Authorization: Basic test@test.com test12
+Content-Type: application/json
+
+<> 2022-01-13T223333.401.json
+
+###
+
+POST http://localhost:8080/api/restaurant/2/vote/
+Authorization: Basic admin@gmail.com admin
+Content-Type: application/json
+
+<> 2022-01-13T223144.403.json
+
+###
+
+POST http://localhost:8080/api/restaurant/2/vote/
+Authorization: Basic admin@gmail.com admin
+Content-Type: application/json
+
+<> 2022-01-13T223127.403.json
+
+###
+
+POST http://localhost:8080/api/restaurant/2/vote/
+Authorization: Basic admin@gmail.com admin
+Content-Type: application/json
+
+<> 2022-01-13T222947.403.json
+
+###
+
+POST http://localhost:8080/api/restaurant/2/vote/
+Authorization: Basic admin@gmail.com admin
+Content-Type: application/json
+
+<> 2022-01-13T222900.403.json
+
+###
+
+POST http://localhost:8080/api/restaurant/2/vote/
+Authorization: Basic admin@gmail.com admin
+Content-Type: application/json
+
+<> 2022-01-13T222650.403.json
+
+###
+
+POST http://localhost:8080/api/admin/restaurant/2/vote/
+Authorization: Basic admin@gmail.com admin
+Content-Type: application/json
+
+<> 2022-01-13T222614.404.json
+
+###
+
+GET http://localhost:8080/api/restaurant/2/vote/for-date?date=2022-01-10
+Accept: application/json
+
+<> 2022-01-13T152224.200.json
+
+###
+
+GET http://localhost:8080/api/restaurant/1/vote
+Accept: application/json
+
+<> 2022-01-13T152207.200.json
+
+###
+
+GET http://localhost:8080/api/restaurant/2/vote/for-date?date=2022-01-10
+Accept: application/json
+
+<> 2022-01-13T151541.200.json
+
+###
+
+GET http://localhost:8080/api/restaurant/1/vote/for-date?date=2022-01-10
+Accept: application/json
+
+<> 2022-01-13T151515.500.json
+
+###
+
+GET http://localhost:8080/api/restaurant/1/vote
+Accept: application/json
+
+<> 2022-01-13T151456.200.json
+
+###
+
+GET http://localhost:8080/api/restaurant/1/vote
+Accept: application/json
+
+<> 2022-01-13T151402.200.json
+
+###
+
+GET http://localhost:8080/api/restaurant/1/vote
+Accept: application/json
+
+<> 2022-01-13T151049.200.json
+
+###
+
+GET http://localhost:8080/api/restaurant/1/vote
+Accept: application/json
+
+<> 2022-01-13T151026.200.json
+
+###
+
+GET http://localhost:8080/api/restaurant/1/vote/for-date?date=2022-01-10
+Accept: application/json
+
+<> 2022-01-13T151019.500.json
+
+###
+
+GET http://localhost:8080/api/restaurant/1/vote
+Accept: application/json
+
+<> 2022-01-13T151002.200.json
+
+###
+
+GET http://localhost:8080/api/restaurant/1/vote
+Accept: application/json
+
+<> 2022-01-13T145231.200.json
+
+###
+
+GET http://localhost:8080/api/restaurant/1/vote
+Accept: application/json
+
+<> 2022-01-13T145146.200.json
+
+###
+
+GET http://localhost:8080/api/restaurant/1/vote
+Accept: application/json
+
+<> 2022-01-13T143635.200.json
+
+###
+
+GET http://localhost:8080/api/restaurant/1/vote
+Accept: application/json
+
+<> 2022-01-13T142752.200.json
+
+###
+
 PUT http://localhost:8080/api/admin/restaurant/2/menu/8
 Authorization: Basic admin@gmail.com admin
 Content-Type: application/json
@@ -234,235 +426,6 @@ GET http://localhost:8080/api/restaurant
 Accept: application/json
 
 <> 2022-01-13T112351.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant
-Accept: application/json
-
-<> 2022-01-13T111656.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant
-Accept: application/json
-
-<> 2022-01-13T111338.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant/1/with-votes-today
-Accept: application/json
-
-<> 2022-01-13T111255.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant/1/with-votes-today
-Accept: application/json
-
-<> 2022-01-13T111007.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant/1
-Accept: application/json
-
-<> 2022-01-13T110956.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant
-Accept: application/json
-
-<> 2022-01-13T110930.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant/today
-Accept: application/json
-
-<> 2022-01-13T001743.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant/today
-Accept: application/json
-
-<> 2022-01-13T001724.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant
-Accept: application/json
-
-<> 2022-01-13T001721.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant
-Accept: application/json
-
-<> 2022-01-12T235808.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant
-Accept: application/json
-
-<> 2022-01-12T233204.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant/1
-Accept: application/json
-
-<> 2022-01-12T233159.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant/1
-Accept: application/json
-
-<> 2022-01-12T232731.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant/1
-Accept: application/json
-
-<> 2022-01-12T232606.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant
-Accept: application/json
-
-<> 2022-01-12T231704.500.json
-
-###
-
-GET http://localhost:8080/api/restaurant
-Accept: application/json
-
-<> 2022-01-12T231118.500.json
-
-###
-
-GET http://localhost:8080/api/restaurant
-Authorization: Basic admin@gmail.com admin
-Accept: application/json
-
-<> 2022-01-12T230811.403.json
-
-###
-
-POST http://localhost:8080/api/profile
-Content-Type: application/json
-
-{
-  "email": "test@test.com",
-  "name": "Test",
-  "password": "test12"
-}
-
-<> 2022-01-12T215451.500.json
-
-###
-
-PUT http://localhost:8080/api/profile
-Authorization: Basic test@test.com test12
-Content-Type: application/json
-
-{
-  "email": "test@test.com",
-  "name": "TestMAX",
-  "password": "test12"
-}
-
-###
-
-PUT http://localhost:8080/api/profile
-Authorization: Basic test@test.com test12
-Content-Type: application/json
-
-{
-  "name": "TestMAX"
-}
-
-<> 2022-01-12T214912.400.json
-
-###
-
-POST http://localhost:8080/api/profile
-Content-Type: application/json
-
-{
-  "email": "test@test.com",
-  "name": "Test",
-  "password": "test12"
-}
-
-<> 2022-01-12T214744.201.json
-
-###
-
-GET http://localhost:8080/api/admin/users
-Authorization: Basic admin@gmail.com admin
-Accept: application/json
-
-<> 2022-01-12T212043.200.json
-
-###
-
-GET http://localhost:8080/api/profile
-Authorization: Basic admin@gmail.com admin
-Accept: application/json
-
-<> 2022-01-12T212024.200.json
-
-###
-
-POST http://localhost:8080/api/profile
-Content-Type: application/json
-
-{
-  "email": "test@test.com",
-  "name": "Test",
-  "password": "test12"
-}
-
-<> 2022-01-12T211737.201.json
-
-###
-
-POST http://localhost:8080/api/admin/users
-Authorization: Basic admin@gmail.com admin
-Content-Type: application/json
-
-{
-  "email": "test2@test.com",
-  "name": "Test2",
-  "password": "test123",
-  "roles": [ "USER","ADMIN"]
-}
-
-<> 2022-01-12T211711.201.json
-
-###
-
-POST http://localhost:8080/api/admin/users
-Authorization: Basic admin@gmail.com admin
-Content-Type: application/json
-
-{
-  "email": "test2@test.com",
-  "name": "Test2",
-  "password": "test123",
-  "roles": [ "USER","ADMIN"]
-}
-
-<> 2022-01-12T210030.415.json
 
 ###
 

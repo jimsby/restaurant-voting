@@ -14,4 +14,6 @@ public class ValidationUtil {
             throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY,bean.getClass().getSimpleName() + " must has id=" + id);
         }
     }
+
+
 }

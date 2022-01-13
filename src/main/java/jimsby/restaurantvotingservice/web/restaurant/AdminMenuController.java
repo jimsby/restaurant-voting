@@ -42,7 +42,7 @@ public class AdminMenuController {
         return ResponseEntity.of(repository.findById(id));
     }
 
-    @GetMapping("by-date")
+    @GetMapping("for-date")
     public List<Meal> getByDate(@PathVariable int rest_id, @RequestParam @Nullable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         return repository.findMealsByRestaurantAndDate(rest_id, date);
     }

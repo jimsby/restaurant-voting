@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,8 +18,14 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Integer>
     Optional<Restaurant> getRestaurantById(int id);
 
     //@Query("select r from Restaurant r join fetch r.votes v join fetch r.meals m where r.id = ?1 and v.date = current_date and m.date = current_date")
-    @Query("select r from Restaurant r join fetch r.votes v where r.id = ?1 and v.date = current_date")
+    @Query("select r from Restaurant r join fetch r.votes v where r.id = :id and v.date = current_date")
     Optional<Restaurant> getWithVotes(int id);
+
+    @Query("select r from Restaurant r join fetch r.meals m where r.id = :id and m.date = current_date")
+    Optional<Restaurant> getWithMeals(int id);
+
+    @Query("select r from Restaurant r join fetch r.meals m where r.id = :id and m.date = :date")
+    Optional<Restaurant> getWithMealsFromDate(int id, LocalDate date);
 
 
     @EntityGraph(attributePaths = {"meals"}, type = EntityGraph.EntityGraphType.LOAD)
