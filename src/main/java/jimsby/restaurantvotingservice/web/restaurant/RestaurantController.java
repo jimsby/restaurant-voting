@@ -21,25 +21,19 @@ public class RestaurantController extends AbstractRestaurantController {
     static final String REST_URL = "/api/restaurant";
 
     @GetMapping("/{id}")
-    public ResponseEntity<Restaurant> get(@PathVariable int id) {
-        return super.get(id);
+    public ResponseEntity<Restaurant> getToday(@PathVariable int id) {
+        return super.getToday(id);
     }
 
-    @GetMapping("/{id}/with-votes")
+    @GetMapping
+    public List<Restaurant> getAll() {
+        return super.getAllToday();
+    }
+
+    @GetMapping("/{id}/with-votes-today")
     public ResponseEntity<Restaurant> getWithVotes(@PathVariable int id) {
         log.info("get restaurant with votes {}", id);
         return ResponseEntity.of(repository.getWithVotes(id));
     }
 
-    @GetMapping
-    public List<Restaurant> getAll() {
-        log.info("get restaurant All");
-        return repository.findAllWithMeals();
-    }
-
-    @GetMapping("/today")
-    public List<Restaurant> getAllToday() {
-        log.info("get restaurant All today");
-        return repository.findAllWithMealsToday();
-    }
 }
