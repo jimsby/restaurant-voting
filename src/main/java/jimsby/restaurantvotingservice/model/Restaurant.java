@@ -30,4 +30,9 @@ public class Restaurant extends NamedEntity implements HasId {
     @JsonManagedReference (value = "restaurant")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Vote> votes;
+
+    public Restaurant(Integer id, String name, List<Meal> meals) {
+        super(id, name);
+        this.meals = meals;
+    }
 }

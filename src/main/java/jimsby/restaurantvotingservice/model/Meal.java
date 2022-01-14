@@ -29,4 +29,10 @@ public class Meal extends NamedEntity implements HasId {
     @Column(name = "date", nullable = false)
     @NotNull
     private LocalDate date;
+
+    public Meal(Integer id, String name, Integer price, LocalDate date) {
+        super(id, name);
+        this.price = price;
+        this.date = date;
+    }
 }

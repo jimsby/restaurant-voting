@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jimsby.restaurantvotingservice.model.Role;
 import jimsby.restaurantvotingservice.model.User;
 import jimsby.restaurantvotingservice.repository.UserRepository;
+import jimsby.restaurantvotingservice.util.JsonUtil;
 import jimsby.restaurantvotingservice.web.AuthUser;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +32,11 @@ import static jimsby.restaurantvotingservice.util.UserUtil.PASSWORD_ENCODER;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserRepository userRepository;
+
+    @Autowired
+    private void setMapper(ObjectMapper objectMapper) {
+        JsonUtil.setMapper(objectMapper);
+    }
 
     @Bean
     @Override

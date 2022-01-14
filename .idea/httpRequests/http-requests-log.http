@@ -1,3 +1,17 @@
+PUT http://localhost:8080/api/profile
+Authorization: Basic user@yandex.ru password
+Content-Type: application/json
+
+{
+  "name": "newName",
+  "password": "newPassword",
+  "email": "admin@gmail.com"
+}
+
+<> 2022-01-14T232046.500.json
+
+###
+
 POST http://localhost:8080/api/restaurant/2/vote/
 Authorization: Basic user@yandex.ru password
 Content-Type: application/json
@@ -6,9 +20,15 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:8080/api/restaurant/2/vote/
+PUT http://localhost:8080/api/profile
 Authorization: Basic user@yandex.ru password
 Content-Type: application/json
+
+{
+  "name": "newName",
+  "password": "newPassword",
+  "email": "admin@gmail.com"
+}
 
 <> 2022-01-13T223755.403.json
 
@@ -419,13 +439,6 @@ GET http://localhost:8080/api/restaurant/1/with-votes-today
 Accept: application/json
 
 <> 2022-01-13T112510.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant
-Accept: application/json
-
-<> 2022-01-13T112351.200.json
 
 ###
 

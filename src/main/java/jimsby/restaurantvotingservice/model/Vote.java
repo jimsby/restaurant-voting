@@ -38,4 +38,11 @@ public class Vote extends BaseEntity implements HasId {
         this.restaurant = restaurant;
         this.user = user;
     }
+
+    public Vote(Integer id, LocalDate date, Restaurant restaurant, User user) {
+        super(id);
+        this.date = date;
+        this.restaurant = restaurant;
+        this.user = user;
+    }
 }
