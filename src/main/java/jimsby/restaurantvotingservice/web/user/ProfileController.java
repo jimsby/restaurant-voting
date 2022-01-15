@@ -28,6 +28,7 @@ public class ProfileController extends AbstractUserController {
 
     @GetMapping
     public User get(@AuthenticationPrincipal AuthUser authUser) {
+        log.info("get AuthUser");
         return authUser.getUser();
     }
 

@@ -25,6 +25,7 @@ public abstract class AbstractUserController {
     }
 
     protected User prepareAndSave(User user) {
+        log.info("save {}", user);
         return repository.save(prepareToSave(user));
     }
 }

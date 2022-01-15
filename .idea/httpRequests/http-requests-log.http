@@ -1,3 +1,84 @@
+DELETE http://localhost:8080/api/admin/restaurant/2/menu/7
+Authorization: Basic admin@gmail.com admin
+
+###
+
+GET http://localhost:8080/api/restaurant/2
+Authorization: Basic admin@gmail.com admin
+Content-Type: application/json
+
+<> 2022-01-15T185515.200.json
+
+###
+
+DELETE http://localhost:8080/api/admin/restaurant/2/menu/7
+Authorization: Basic admin@gmail.com admin
+
+<> 2022-01-15T185457.500.json
+
+###
+
+GET http://localhost:8080/api/restaurant/2
+Authorization: Basic admin@gmail.com admin
+Content-Type: application/json
+
+<> 2022-01-15T185420.200.json
+
+###
+
+DELETE http://localhost:8080/api/admin/restaurant/2/menu/7
+Authorization: Basic admin@gmail.com admin
+
+###
+
+GET http://localhost:8080/api/restaurant/2
+Authorization: Basic admin@gmail.com admin
+Content-Type: application/json
+
+<> 2022-01-15T185357.200.json
+
+###
+
+GET http://localhost:8080/api/restaurant/2
+Authorization: Basic admin@gmail.com admin
+Content-Type: application/json
+
+<> 2022-01-15T185345.200.json
+
+###
+
+GET http://localhost:8080/api/restaurant/2
+Authorization: Basic admin@gmail.com admin
+Content-Type: application/json
+
+<> 2022-01-15T185320.200.json
+
+###
+
+GET http://localhost:8080/api/restaurant/2
+Authorization: Basic admin@gmail.com admin
+Content-Type: application/json
+
+<> 2022-01-15T185300.200.json
+
+###
+
+GET http://localhost:8080/api/restaurant/2
+Authorization: Basic admin@gmail.com admin
+Content-Type: application/json
+
+<> 2022-01-15T185258.200.json
+
+###
+
+GET http://localhost:8080/api/restaurant/2
+Authorization: Basic admin@gmail.com admin
+Content-Type: application/json
+
+<> 2022-01-15T185252.200.json
+
+###
+
 PUT http://localhost:8080/api/profile
 Authorization: Basic user@yandex.ru password
 Content-Type: application/json
@@ -355,90 +436,4 @@ DELETE http://localhost:8080/api/admin/restaurant/2/menu/7
 Authorization: Basic admin@gmail.com admin
 
 <> 2022-01-13T132041.500.json
-
-###
-
-DELETE http://localhost:8080/api/admin/restaurant/2/menu/7
-Authorization: Basic admin@gmail.com admin
-
-###
-
-DELETE http://localhost:8080/api/admin/restaurant/2/menu/7
-Authorization: Basic admin@gmail.com admin
-
-###
-
-DELETE http://localhost:8080/api/admin/restaurant/2/menu/7
-Authorization: Basic admin@gmail.com admin
-
-###
-
-GET http://localhost:8080/api/admin/restaurant/2/menu/by-date?date=2022-01-10
-Authorization: Basic admin@gmail.com admin
-Accept: application/json
-
-<> 2022-01-13T130737.200.json
-
-###
-
-GET http://localhost:8080/api/admin/restaurant/1/menu
-Authorization: Basic admin@gmail.com admin
-Accept: application/json
-
-<> 2022-01-13T130038.200.json
-
-###
-
-GET http://localhost:8080/api/admin/restaurant/1/menu
-Authorization: Basic admin@gmail.com admin
-Accept: application/json
-
-<> 2022-01-13T125925.500.json
-
-###
-
-PUT http://localhost:8080/api/admin/restaurant/2
-Authorization: Basic admin@gmail.com admin
-Content-Type: application/json
-
-{
-  "name": "test Resort put"
-}
-
-###
-
-POST http://localhost:8080/api/admin/restaurant
-Authorization: Basic admin@gmail.com admin
-Content-Type: application/json
-
-{
-  "name": "test Resort"
-}
-
-<> 2022-01-13T121536.201.json
-
-###
-
-GET http://localhost:8080/api/admin/restaurant/1
-Authorization: Basic admin@gmail.com admin
-Accept: application/json
-
-<> 2022-01-13T121502.200.json
-
-###
-
-GET http://localhost:8080/api/admin/restaurant
-Authorization: Basic admin@gmail.com admin
-Accept: application/json
-
-<> 2022-01-13T121440.200.json
-
-###
-
-GET http://localhost:8080/api/restaurant/1/with-votes-today
-Accept: application/json
-
-<> 2022-01-13T112510.200.json
-
-###
 

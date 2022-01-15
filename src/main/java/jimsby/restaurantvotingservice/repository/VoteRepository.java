@@ -15,11 +15,6 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public interface VoteRepository extends JpaRepository<Vote, Integer> {
 
-    @Query("select distinct v from Vote v " +
-            "join fetch v.user u " +
-            "where v.date = current_date and v.restaurant.id = :id")
-    List<Vote> findAllWithUserToday(Integer id);
-
     @Query("SELECT COUNT (v) from Vote v WHERE v.date = :date and v.restaurant.id = :restaurant_id")
     long getVotesCountByRestaurantCurrentDate(int restaurant_id, LocalDate date);
 

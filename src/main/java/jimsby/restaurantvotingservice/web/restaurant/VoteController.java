@@ -47,6 +47,7 @@ public class VoteController {
 
     @GetMapping("by-date")
     public RestaurantTo getByDate(@PathVariable int rest_id, @RequestParam @Nullable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
+        log.info("Menu and count voting for restaurant {} by date {}", rest_id, date);
         return service.getForDate(rest_id, date);
     }
 

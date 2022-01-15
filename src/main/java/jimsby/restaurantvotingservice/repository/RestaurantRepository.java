@@ -16,20 +16,11 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Integer>
     @EntityGraph(attributePaths = {"meals"}, type = EntityGraph.EntityGraphType.LOAD)
     Optional<Restaurant> getRestaurantById(int id);
 
-    //@Query("select r from Restaurant r join fetch r.votes v join fetch r.meals m where r.id = ?1 and v.date = current_date and m.date = current_date")
-    @Query("select r from Restaurant r join fetch r.votes v where r.id = :id and v.date = current_date")
-    Optional<Restaurant> getWithVotes(int id);
-
     @Query("select r from Restaurant r join fetch r.meals m where r.id = :id and m.date = current_date")
     Optional<Restaurant> getWithMealsToday(int id);
 
     @Query("select r from Restaurant r join fetch r.meals m where r.id = :id and m.date = :date")
     Optional<Restaurant> getWithMealsFromDate(int id, LocalDate date);
-
-
-    @EntityGraph(attributePaths = {"meals"}, type = EntityGraph.EntityGraphType.LOAD)
-    @Query("select r from Restaurant r")
-    List<Restaurant> getAllWithMeals();
 
     @Query("select distinct r from Restaurant r " +
             "join fetch r.meals m " +

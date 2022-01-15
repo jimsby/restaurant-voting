@@ -4,6 +4,8 @@ import jimsby.restaurantvotingservice.model.Restaurant;
 import jimsby.restaurantvotingservice.repository.RestaurantRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,6 +23,7 @@ import static jimsby.restaurantvotingservice.util.ValidationUtil.assureIdConsist
 @RequestMapping(value = AdminRestaurantController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 @Slf4j
 @AllArgsConstructor
+@CacheConfig(cacheNames = "restaurants")
 public class AdminRestaurantController {
     static final String REST_URL = "/api/admin/restaurant";
 
@@ -40,11 +43,14 @@ public class AdminRestaurantController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @CacheEvict(allEntries = true)
     public void delete(@PathVariable int id) {
+        log.info("delete restaurant {}", id);
         repository.deleteById(id);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @CacheEvict(allEntries = true)
     public ResponseEntity<Restaurant> create(@Valid @RequestBody Restaurant restaurant) {
         log.info("create {}", restaurant);
         if (restaurant.isNew()) {
@@ -60,6 +66,7 @@ public class AdminRestaurantController {
 
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @CacheEvict(allEntries = true)
     public void update(@Valid @RequestBody Restaurant restaurant, @PathVariable int id) {
         log.info("update {} with id={}", restaurant, id);
         assureIdConsistent(restaurant, id);
