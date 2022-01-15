@@ -1,16 +1,5 @@
 Restaurant voting service
 ===============================
-
--------------------------------------------------------------
-- Stack: [JDK 17](http://jdk.java.net/17/), Spring Boot 2.5, Lombok, H2, Caffeine Cache, Swagger/OpenAPI 3.0
-- Run: `mvn spring-boot:run` in root directory.
------------------------------------------------------
-[REST API documentation](http://localhost:8080/swagger-ui.html)  
-Credentials:
-```
-User:  user@yandex.ru / password
-Admin: admin@gmail.com / admin
-```
 -----------------------------------------------------
 Design and implement a REST API using Hibernate/Spring/SpringMVC (or Spring-Boot) without frontend.
 
@@ -29,3 +18,14 @@ If it is after 11:00 then it is too late, vote can't be changed
 Each restaurant provides a new menu each day.
 
 As a result, provide a link to github repository. It should contain the code, README.md with API documentation and couple curl commands to test it (better - link to Swagger).
+
+-------------------------------------------------------------
+- Stack: [JDK 17](http://jdk.java.net/17/), Spring Boot 2.5, Lombok, H2, Caffeine Cache, Swagger/OpenAPI 3.0
+- Run: `mvn spring-boot:run` in root directory.
+-----------------------------------------------------
+[REST API documentation](http://localhost:8080/swagger-ui.html)  
+Credentials:
+```
+User:  user@yandex.ru / password
+Admin: admin@gmail.com / admin
+```
