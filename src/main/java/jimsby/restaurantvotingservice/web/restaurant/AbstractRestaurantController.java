@@ -14,11 +14,6 @@ public abstract class AbstractRestaurantController {
     @Autowired
     protected RestaurantRepository repository;
 
-    public ResponseEntity<Restaurant> getToday(int id){
-        log.info("get restaurant {} today", id);
-        return ResponseEntity.of(repository.getRestaurantById(id));
-    }
-
     public List<Restaurant> getAllToday() {
         log.info("get restaurant All today");
         return repository.findAllWithMealsToday();

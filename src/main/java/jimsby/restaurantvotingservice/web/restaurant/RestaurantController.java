@@ -1,7 +1,6 @@
 package jimsby.restaurantvotingservice.web.restaurant;
 
 import jimsby.restaurantvotingservice.model.Restaurant;
-import jimsby.restaurantvotingservice.repository.RestaurantRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
@@ -21,8 +20,9 @@ public class RestaurantController extends AbstractRestaurantController {
     static final String REST_URL = "/api/restaurant";
 
     @GetMapping("/{id}")
-    public ResponseEntity<Restaurant> getToday(@PathVariable int id) {
-        return super.getToday(id);
+    public ResponseEntity<Restaurant> get(@PathVariable int id) {
+        log.info("get restaurant {} with meals today", id);
+        return ResponseEntity.of(repository.getRestaurantById(id));
     }
 
     @GetMapping

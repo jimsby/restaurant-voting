@@ -20,7 +20,7 @@ import static jimsby.restaurantvotingservice.util.ValidationUtil.assureIdConsist
 @RequestMapping(value = AdminRestaurantController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 @Slf4j
 @AllArgsConstructor
-public class AdminRestaurantController extends AbstractRestaurantController{
+public class AdminRestaurantController extends AbstractRestaurantController {
     static final String REST_URL = "/api/admin/restaurant";
 
     @GetMapping
@@ -30,7 +30,7 @@ public class AdminRestaurantController extends AbstractRestaurantController{
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Restaurant> getToday(@PathVariable int id) {
+    public ResponseEntity<Restaurant> get(@PathVariable int id) {
         log.info("get restaurant {}", id);
         return ResponseEntity.of(repository.findById(id));
     }
@@ -42,15 +42,15 @@ public class AdminRestaurantController extends AbstractRestaurantController{
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Restaurant> createWithLocation(@Valid @RequestBody Restaurant restaurant) {
+    public ResponseEntity<Restaurant> create(@Valid @RequestBody Restaurant restaurant) {
         log.info("create {}", restaurant);
-        if(restaurant.isNew()) {
+        if (restaurant.isNew()) {
             Restaurant created = repository.save(restaurant);
             URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
                     .path(REST_URL + "/{id}")
                     .buildAndExpand(created.getId()).toUri();
             return ResponseEntity.created(uriOfNewResource).body(created);
-        }else {
+        } else {
             throw new RuntimeException();
         }
     }

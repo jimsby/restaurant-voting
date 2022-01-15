@@ -1,8 +1,6 @@
 package jimsby.restaurantvotingservice.web.restaurant;
 
 import jimsby.restaurantvotingservice.model.Meal;
-import jimsby.restaurantvotingservice.model.Restaurant;
-import jimsby.restaurantvotingservice.model.User;
 import jimsby.restaurantvotingservice.repository.MealRepository;
 import jimsby.restaurantvotingservice.service.RestaurantService;
 import lombok.AllArgsConstructor;
@@ -39,22 +37,22 @@ public class AdminMenuController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Meal> getById(@PathVariable int id, @PathVariable int rest_id) {
-        return ResponseEntity.of(repository.findById(id));
+        return ResponseEntity.of(repository.get(id, rest_id));
     }
 
-    @GetMapping("for-date")
+    @GetMapping("by-date")
     public List<Meal> getByDate(@PathVariable int rest_id, @RequestParam @Nullable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         return repository.findMealsByRestaurantAndDate(rest_id, date);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable int id,@PathVariable int rest_id) {
+    public void delete(@PathVariable int id, @PathVariable int rest_id) {
         repository.deleteById(id);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Meal> createWithLocation(@Valid @RequestBody Meal meal,@PathVariable int rest_id) {
+    public ResponseEntity<Meal> create(@Valid @RequestBody Meal meal, @PathVariable int rest_id) {
         log.info("create {}", meal);
         Meal created = service.save(meal, rest_id);
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
