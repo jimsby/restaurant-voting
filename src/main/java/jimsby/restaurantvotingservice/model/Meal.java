@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "meal")
+@Table(name = "meal", indexes = @Index(name = "meal_index", columnList = "name, restaurant_id, date", unique = true))
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
