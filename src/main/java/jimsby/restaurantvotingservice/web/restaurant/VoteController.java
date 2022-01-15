@@ -33,12 +33,19 @@ public class VoteController {
     protected final VoteService service;
 
     @GetMapping
-    public RestaurantTo getToday(@PathVariable int rest_id) {
-        log.info("Today voting for restaurant {}", rest_id);
+    public List<Vote> getToday(@PathVariable int rest_id) {
+        log.info("Menu and count voting for restaurant {} today", rest_id);
+        List<Vote> votes = repository.getByRest(rest_id);
+        return votes;
+    }
+
+    @GetMapping("/with-meals")
+    public RestaurantTo getTodayWithMeals(@PathVariable int rest_id) {
+        log.info("Menu and count voting for restaurant {} today", rest_id);
         return service.get(rest_id);
     }
 
-    @GetMapping("for-date")
+    @GetMapping("by-date")
     public RestaurantTo getByDate(@PathVariable int rest_id, @RequestParam @Nullable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         return service.getForDate(rest_id, date);
     }
@@ -52,6 +59,4 @@ public class VoteController {
                 .buildAndExpand(rest_id).toUri();
         return ResponseEntity.created(uriOfNewResource).body(created);
     }
-
-
 }

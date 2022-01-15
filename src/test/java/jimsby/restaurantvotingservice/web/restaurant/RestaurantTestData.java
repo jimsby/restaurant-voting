@@ -15,7 +15,9 @@ import static jimsby.restaurantvotingservice.web.user.UserTestData.user;
 public class RestaurantTestData {
     public static final MatcherFactory.Matcher<Restaurant> RESTAURANT_MATCHER = MatcherFactory.usingIgnoringFieldsComparator(Restaurant.class, "votes", "meals");
     public static final MatcherFactory.Matcher<Meal> MEAL_MATCHER = MatcherFactory.usingIgnoringFieldsComparator(Meal.class, "restaurant");
-    public static MatcherFactory.Matcher<RestaurantTo> RESTAURANT_TO_MATCHER = MatcherFactory.usingEqualsComparator(RestaurantTo.class);
+    public static MatcherFactory.Matcher<RestaurantTo> RESTAURANT_TO_MATCHER = MatcherFactory.usingIgnoringFieldsComparator(RestaurantTo.class, "meals");
+    public static final MatcherFactory.Matcher<Restaurant> RESTAURANT_WITH_MEALS_MATCHER = MatcherFactory.usingIgnoringFieldsComparator(Restaurant.class,  "votes", "meals.restaurant");
+    public static final MatcherFactory.Matcher<Vote> VOTE_MATCHER = MatcherFactory.usingIgnoringFieldsComparator(Vote.class,  "restaurant", "user");
 
     public static final int RESTAURANT1_ID = 1;
     public static final int RESTAURANT2_ID = 2;
@@ -34,13 +36,17 @@ public class RestaurantTestData {
 
     public static final List<Meal> rest1_meal = List.of(meal1, meal2, meal3);
     public static final List<Meal> rest2_meal = List.of(meal4, meal5, meal6, meal7);
+    public static final List<Meal> rest2_meal_today = List.of(meal4, meal5, meal6);
 
 
     public static final Restaurant restaurant1 = new Restaurant(RESTAURANT1_ID, "Grand Resort", rest1_meal);
     public static final Restaurant restaurant2 = new Restaurant(RESTAURANT2_ID, "Bad Resort", rest2_meal);
+    public static final Restaurant restaurant2_today = new Restaurant(RESTAURANT2_ID, "Bad Resort", rest2_meal_today);
 
     public static final Vote vote1 = new Vote(VOTE1_ID, now(), restaurant1, user);
     public static final Vote vote2 = new Vote(VOTE1_ID + 1, OLD_DATE, restaurant2, user);
+
+    public static final RestaurantTo restaurant1To = new RestaurantTo(restaurant1, 1);
 
     static {
         restaurant1.setVotes(List.of(vote1));
@@ -61,5 +67,9 @@ public class RestaurantTestData {
 
     public static Meal getUpdatedMeal() {
         return new Meal(MEAL1_ID, "MealUpdatedName", 30, NOW_DATE);
+    }
+
+    public static Vote getNewVote() {
+        return new Vote(null, NOW_DATE, restaurant2, user);
     }
 }

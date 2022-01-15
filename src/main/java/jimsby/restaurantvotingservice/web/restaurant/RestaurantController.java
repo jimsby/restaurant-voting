@@ -1,6 +1,7 @@
 package jimsby.restaurantvotingservice.web.restaurant;
 
 import jimsby.restaurantvotingservice.model.Restaurant;
+import jimsby.restaurantvotingservice.repository.RestaurantRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
@@ -16,8 +17,10 @@ import java.util.List;
 @RequestMapping(value = RestaurantController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 @Slf4j
 @AllArgsConstructor
-public class RestaurantController extends AbstractRestaurantController {
+public class RestaurantController {
     static final String REST_URL = "/api/restaurant";
+
+    protected RestaurantRepository repository;
 
     @GetMapping("/{id}")
     public ResponseEntity<Restaurant> get(@PathVariable int id) {
@@ -27,13 +30,8 @@ public class RestaurantController extends AbstractRestaurantController {
 
     @GetMapping
     public List<Restaurant> getAll() {
-        return super.getAllToday();
-    }
-
-    @GetMapping("/{id}/with-votes-today")
-    public ResponseEntity<Restaurant> getWithVotes(@PathVariable int id) {
-        log.info("get restaurant with votes {}", id);
-        return ResponseEntity.of(repository.getWithVotes(id));
+        log.info("get restaurant All today");
+        return repository.findAllWithMealsToday();
     }
 
 }

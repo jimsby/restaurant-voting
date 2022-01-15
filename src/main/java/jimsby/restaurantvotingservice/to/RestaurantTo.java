@@ -1,5 +1,6 @@
 package jimsby.restaurantvotingservice.to;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jimsby.restaurantvotingservice.model.Meal;
 import jimsby.restaurantvotingservice.model.Restaurant;
 import lombok.EqualsAndHashCode;

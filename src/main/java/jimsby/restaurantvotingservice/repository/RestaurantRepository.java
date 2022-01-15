@@ -4,7 +4,6 @@ import jimsby.restaurantvotingservice.model.Restaurant;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
@@ -22,7 +21,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Integer>
     Optional<Restaurant> getWithVotes(int id);
 
     @Query("select r from Restaurant r join fetch r.meals m where r.id = :id and m.date = current_date")
-    Optional<Restaurant> getWithMeals(int id);
+    Optional<Restaurant> getWithMealsToday(int id);
 
     @Query("select r from Restaurant r join fetch r.meals m where r.id = :id and m.date = :date")
     Optional<Restaurant> getWithMealsFromDate(int id, LocalDate date);
@@ -34,9 +33,6 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Integer>
 
     @Query("select distinct r from Restaurant r " +
             "join fetch r.meals m " +
-            "where m.date = current_date")
+            "where m.date = current_date ORDER BY r.name ASC")
     List<Restaurant> findAllWithMealsToday();
-
-    @Query("select r from Restaurant r")
-    List<Restaurant> getAll();
 }

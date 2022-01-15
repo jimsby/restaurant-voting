@@ -1,6 +1,7 @@
 package jimsby.restaurantvotingservice.web.restaurant;
 
 import jimsby.restaurantvotingservice.model.Restaurant;
+import jimsby.restaurantvotingservice.repository.RestaurantRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;
@@ -20,8 +21,10 @@ import static jimsby.restaurantvotingservice.util.ValidationUtil.assureIdConsist
 @RequestMapping(value = AdminRestaurantController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 @Slf4j
 @AllArgsConstructor
-public class AdminRestaurantController extends AbstractRestaurantController {
+public class AdminRestaurantController {
     static final String REST_URL = "/api/admin/restaurant";
+
+    protected RestaurantRepository repository;
 
     @GetMapping
     public List<Restaurant> getAll() {

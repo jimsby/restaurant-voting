@@ -15,13 +15,15 @@ import java.time.LocalTime;
 @Service
 @AllArgsConstructor
 public class VoteService {
+    private static final LocalTime TIME_LIMIT = LocalTime.of(11, 0);
+
     private RestaurantRepository restaurantRepository;
     private VoteRepository voteRepository;
     private UserRepository userRepository;
 
     public RestaurantTo get(int rest_id){
         return new RestaurantTo(
-        restaurantRepository.getWithMeals(rest_id).get(),
+        restaurantRepository.getWithMealsToday(rest_id).get(),
                 voteRepository.getVotesCountByRestaurantToday(rest_id));
     }
 
@@ -36,7 +38,7 @@ public class VoteService {
     @Transactional
     public Vote vote(int rest_id, int id) {
         Vote created = new Vote(restaurantRepository.getById(rest_id), userRepository.getById(id));
-        if(LocalTime.now().isBefore(LocalTime.of(11, 0))){
+        if(LocalTime.now().isBefore(TIME_LIMIT)){
             return voteRepository.save(created);
         }else return voteRepository.get(id);
     }
